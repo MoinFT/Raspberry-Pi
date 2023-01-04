@@ -294,15 +294,35 @@ Before install any package update all packages with `sudo apt-get update & sudo 
 
 ### Node.js
 
-Get the latest version from <https://nodejs.org/en/download/>. Then insert the version instead of version into the link.
+1. Add the NodeJS repository to your Raspberry Pi.
 
-From the Raspberry Pi get the version of ARM with `uname -m` and insert the version instead of version into the link.
+    #### Current Node.JS Release
+
+    To add the repository for the latest version of NodeJS to your Raspberry Pi, run the following command.
+
+    ```bash
+    curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
+    ```
+
+    #### Long Term Support (LTS) Node.JS Release
+
+    If you prefer to use the current LTS release, use the command below.
+
+    ```bash
+    curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+    ```
+
+2. With the NodeJS repositories added to our Raspberry Pi, we can proceed to install the runtime to our device.
 
 ```bash
-wget https://nodejs.org/dist/[version]/node-[version]-linux-[uname].tar.gz
-tar -xzf node-[version]-linux-[uname].tar.gz
-cd node-[version]-linux-[uname]/
-sudo cp -R * /usr/local/
+sudo apt install nodejs
+```
+
+3. To verify that we have now successfully installed NodeJS, we can run the following command.
+
+```bash
+node -v
+> v18.12.1
 ```
 
 ### Apache Webserver with PHP
