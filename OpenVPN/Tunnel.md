@@ -373,7 +373,7 @@ Explaining the configuration lines
 ### Create the Open VPN .OVPN file
 
 ```shell
-./make_client_ovpn.sh [Client-Name] [Server-Name]
+./makeOpenVPN_Client.sh [Client-Name] [Server-Name]
 ```
 
 Get the `.ovpn-File` from the OpenVPN-Server via sFTP on your Client and import the settings in OpenVPN-Connect.
