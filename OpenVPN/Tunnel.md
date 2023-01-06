@@ -179,11 +179,9 @@ cp ${1}.key ${1}.pem /etc/openvpn/server/
     
 cd ../issued/
 cp ${1}.crt /etc/openvpn/server/
-
-sysctl -w net.ipv4.ip_forward=1
 ```
 
-## Create OpenVPN server certificates and configuration
+## Create OpenVPN server certificates, configuration and enable IP forwarding
 
 1. Execute the file `makeOpenVPN_Server_Certificates.sh`
 
@@ -196,6 +194,18 @@ sysctl -w net.ipv4.ip_forward=1
 
     ```shell
     sudo bash makeOpenVPN_Server_Configuration.sh [Server-Name] [Username]
+    ```
+ 
+3. Enable IP forwarding
+
+    ```shell
+    sudo nano /etc/sysctl.conf
+    ```
+    
+    And uncomment this line (remove '#'):
+    
+    ```
+    #net.ipv4.ip_forward=1
     ```
 
 ## Configuring the firewall to do NAT (Network Address Translation)
